@@ -117,16 +117,34 @@ def get_password():
 
 def save_passwords():
     """
-    Save all passwords, usernames, and websites to 'vault.txt' in JSON format.
-    Passwords remain encrypted.
+    Save the password vault to a file.
+
+    This function should save passwords, websites, and usernames to a text
+    file named "vault.txt" in a structured format.
+
+    Returns:
+        None
     """
-    data = [
-        {"website": websites[i], "username": usernames[i], "password": encrypted_passwords[i]}
-        for i in range(len(websites))
-    ]
-    with open("vault.txt", "w") as f:
+    import os
+    filename = "vault.txt"
+    data = []
+    if os.path.isfile(filename):
+        with open(filename, "r") as f:
+            try:
+                data = json.load(f)
+            except json.JSONDecodeError:
+                data = []
+    for i in range(len(websites)):
+        entry = {
+            "website": websites[i],
+            "username": usernames[i],
+            "password": encrypted_passwords[i]
+        }
+        data.append(entry)
+    with open(filename, "w") as f:
         json.dump(data, f)
     print("Passwords saved successfully.")
+
 
 # Function to load passwords from a JSON file 
 
