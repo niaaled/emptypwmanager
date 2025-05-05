@@ -159,7 +159,7 @@ def save_passwords():
 # Function to load passwords from a JSON file 
 
 def load_passwords():
-     """
+    """
     Load passwords from a file into the password vault.
 
     This function should load passwords, websites, and usernames from a text
@@ -168,7 +168,7 @@ def load_passwords():
     Returns:
         None
 
-     """
+    """
     try:
         with open("vault.txt", "r") as f:
             data = json.load(f)
@@ -183,7 +183,7 @@ def load_passwords():
     except FileNotFoundError:
         print("No saved password file found.")
 
-  # Main method
+# Main method
 
 def main():
     menu = """
