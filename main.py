@@ -75,9 +75,13 @@ usernames = []
 
 def add_password():
     """
-    Prompt the user for website, username, and password.
-    Optionally generate a strong password.
-    Encrypts and stores the password.
+    Add a new password to the password manager.
+
+    This function should prompt the user for the website, username,  and password and store them to lits with same index. Optionally, it should check password strengh with the function is_strong_password. It may also include an option for the user to
+    generate a random strong password by calling the generate_password function.
+
+    Returns:
+        None
     """
     website = input("Enter website: ")
     username = input("Enter username: ")
@@ -100,7 +104,13 @@ def add_password():
 
 def get_password():
     """
-    Retrieve and display the username and decrypted password for a given website.
+    Retrieve a password for a given website.
+
+    This function should prompt the user for the website name and
+    then display the username and decrypted password for that website.
+
+    Returns:
+        None
     """
     website = input("Enter website to retrieve password: ")
     try:
@@ -149,10 +159,16 @@ def save_passwords():
 # Function to load passwords from a JSON file 
 
 def load_passwords():
-    """
-    Load all passwords, usernames, and websites from 'vault.txt'.
-    Populates the lists with loaded data.
-    """
+     """
+    Load passwords from a file into the password vault.
+
+    This function should load passwords, websites, and usernames from a text
+    file named "vault.txt" (or a more generic name) and populate the respective lists.
+
+    Returns:
+        None
+
+     """
     try:
         with open("vault.txt", "r") as f:
             data = json.load(f)
