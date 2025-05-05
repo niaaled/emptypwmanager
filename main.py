@@ -3,7 +3,7 @@ import re
 import random
 import string
 
-# --- Caesar cipher encryption and decryption functions (pre-implemented) ---
+# Caesar cipher encryption and decryption functions (pre-implemented)
 
 def caesar_encrypt(text, shift):
     """
@@ -28,7 +28,7 @@ def caesar_decrypt(text, shift):
     """
     return caesar_encrypt(text, -shift)
 
-# --- Password strength checker (optional, but recommended) ---
+# Password strength checker function (optional)
 
 def is_strong_password(password):
     """
@@ -42,7 +42,7 @@ def is_strong_password(password):
         re.search(r'[!@#$%^&*(),.?":{}|<>]', password)
     )
 
-# --- Password generator (optional, but recommended) ---
+# Password generator function (optional)
 
 def generate_password():
     """
@@ -65,13 +65,13 @@ def generate_password():
         if is_strong_password(password):
             return password
 
-# --- Data storage ---
+# Initialize empty lists to store encrypted passwords, websites, and usernames
 
 encrypted_passwords = []
 websites = []
 usernames = []
 
-# --- Add new password ---
+# Function to add a new password 
 
 def add_password():
     """
@@ -96,7 +96,7 @@ def add_password():
     encrypted_passwords.append(encrypted_password)
     print("Password added successfully.")
 
-# --- Retrieve password ---
+# Function to retrieve a password 
 
 def get_password():
     """
@@ -113,7 +113,7 @@ def get_password():
     except ValueError:
         print("Website not found.")
 
-# --- Save passwords to file ---
+# Function to save passwords to a JSON file 
 
 def save_passwords():
     """
@@ -128,7 +128,7 @@ def save_passwords():
         json.dump(data, f)
     print("Passwords saved successfully.")
 
-# --- Load passwords from file ---
+# Function to load passwords from a JSON file 
 
 def load_passwords():
     """
@@ -149,7 +149,7 @@ def load_passwords():
     except FileNotFoundError:
         print("No saved password file found.")
 
-# --- Main program loop ---
+  # Main method
 
 def main():
     menu = """
@@ -177,7 +177,7 @@ Password Manager Menu:
         else:
             print("Invalid choice. Please try again.")
 
-# --- Run the program ---
+# Execute the main function when the program is run
 
 if __name__ == "__main__":
     main()
